@@ -133,7 +133,7 @@ class App extends React.Component {
             </footer>
 
             {/* Mobile Menu control*/}
-            <div className="mobilemenu" onClick={ () => this.menuUpdate() } > Day Menu</div>
+            <div className="mobilemenu" onClick={ () => this.menuUpdate() } ><p>Day Menu</p></div>
             </React.Fragment>
           )}
         </div>
