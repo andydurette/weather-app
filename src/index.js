@@ -19,7 +19,7 @@ class App extends React.Component {
     // Actual Url: https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/7e2a14caaf233206e9baa745d4d549c1/43.6532,-79.3832
     // Testing Url: https://cors-anywhere.herokuapp.com/http://andydurette.com/sitelog/test-data/weather.json
 
-    fetch('https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/7e2a14caaf233206e9baa745d4d549c1/43.6532,-79.3832')
+    fetch('ttps://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/7e2a14caaf233206e9baa745d4d549c1/43.6532,-79.3832')
      .then((res) => res.json())
      .then((data) => this.setState({weather: data}))
      .then(() => this.setState({ isFetching: false}))
@@ -92,7 +92,7 @@ class App extends React.Component {
 
   render() {
     return (
-        <div className="background">
+      <React.Fragment>
           {this.state.isFetching ?  
           <div id="loadingScreen">
           <p>Loading...</p>
@@ -136,7 +136,7 @@ class App extends React.Component {
             <div className="mobilemenu" onClick={ () => this.menuUpdate() } ><p>Day Menu</p></div>
             </React.Fragment>
           )}
-        </div>
+        </React.Fragment>
     );
   }
 }
