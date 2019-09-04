@@ -1,12 +1,12 @@
 /* General styles */
 
-html, #root{
+#root, html{
   height:100%;
-  width:100%;
+  min-width:100%;
 }
 
 body {
-  font: 14px "Century Gothic", Futura, sans-serif;
+  font-family: open sans;
   margin:0;
   background-color:#132028;
   background-repeat: no-repeat;
@@ -14,8 +14,8 @@ body {
   background-attachment: fixed;
   background-image: url("/images/blizzard-fw.jpg");
   background-size: cover;
-  height:100%;
-  min-height:100%;
+  /* Height Minimum set for mobile views */
+  min-height:660px;
 }
 
 h1{
@@ -23,7 +23,6 @@ h1{
   padding-bottom: 10px;
   margin: 0!important;
   color: white;
-  font-family: open sans;
   text-align: center;
   }
 
@@ -49,22 +48,20 @@ h1{
   color:white;
   background-color:rgba(19,32,40,0.5);
   padding: 20px 0;
-}
-
-#weatherDisplay img{
-  width:20%;
-  min-width:180px;
-  margin:0 5%;
-}
-
-#weatherDisplay p{
-  padding: 10px;
-  margin: 0!important;
-  color: white;
-  font-family: open sans;
-  text-align: left;
-  font-size:1.5em;
-  text-align:center;
+  img{
+    width:20%;
+    min-width:180px;
+    margin:0 5%;
+  }
+  p{
+    padding: 10px;
+    margin: 0!important;
+    color: white;
+    font-family: open sans;
+    text-align: left;
+    font-size:1.5em;
+    text-align:center;
+  }
 }
 
 #weatherContainer{
@@ -92,6 +89,12 @@ h1{
   justify-content: space-evenly;
   flex-direction: row;
   align-items: center;
+  .active{
+    background-color: rgba(95, 130, 141, 0.8);
+  }
+  p{
+    margin:0 5px;
+  }
 }
 
 .weatherTiles:hover{
@@ -99,17 +102,10 @@ h1{
   background-color: rgba(95, 130, 141, 0.8);
 }
 
-.weatherTiles.active{
-  background-color: rgba(95, 130, 141, 0.8);
-}
-
 .weatherTiles:last-child{
   border:none;
 }
 
-.weatherTiles p{
-  margin:0 5px;
-}
 
 .mobilemenu{
   color: white;
@@ -123,15 +119,16 @@ h1{
   height:12.5%;
   line-height: 3.2em;
   box-sizing: border-box;
-  }
-
-  .mobilemenu p{
+  p{
     margin:0;
     display: flex;
     justify-content: center;
     align-items: center;
     height:100%;
   }
+}
+
+
 
 
 
@@ -152,10 +149,9 @@ h1{
   .weatherTiles{
     height:12.5%;
     overflow: hidden;
-  }
-
-  .weatherTiles p img{
-    max-width:45px;
+    p img{
+      max-width:45px;
+    }
   }
 
   .open{
@@ -169,7 +165,7 @@ h1{
 }
 
 
-
+/* Shift from mobile menu to desktop menu */
 @media only screen and (min-width: 768px) {
 
   .mobilemenu{
@@ -190,25 +186,23 @@ h1{
     color:white;
     flex-direction: column!important;
     border:none;
+    p{
+      margin: 7px 0;
+    }
+    p:nth-of-type(1) { order: 2; }
+    p:nth-of-type(2) { order: 1; }
+    p:nth-of-type(3) { order: 3; }
   }
 
-  .weatherTiles p{
-    margin: 7px 0;
-  }
-
-.weatherTiles p:nth-of-type(1) { order: 2; }
-.weatherTiles p:nth-of-type(2) { order: 1; }
-.weatherTiles p:nth-of-type(3) { order: 3; }
 
   #weatherDisplay{
     flex-direction: row;
     height: calc(50% - 58px);
-    min-height:250px;
+    min-height:300px;
     padding: 0 0;
-  }
-
-  #weatherDisplay p{
-    text-align:left;
+    p{
+      text-align:left;
+    }
   }
 
   .weatherTiles{
@@ -231,7 +225,7 @@ h1{
     display: flex; /* or inline-flex */
     justify-content: center;
     align-items: center;
-    min-height:250px;
+    min-height:300px;
     flex-direction: row;
     height: calc(50% - 40px);
   }
@@ -241,8 +235,7 @@ footer{
   text-align:center;
   margin-top:10px;
   height:30px;
-}
-
-footer a{
-  color:white;
+  a{
+    color:white;
+  }
 }

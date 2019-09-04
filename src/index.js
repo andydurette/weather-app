@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import WeatherTiles from './WeatherTiles';
 import WeatherDisplay from './WeatherDisplay';
-import './index.css';
+import './index.scss';
 
 class App extends React.Component {
 
