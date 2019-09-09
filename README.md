@@ -1,3 +1,5 @@
+Note: Project currently fetches from a set json file you must go to https://darksky.net/ to get your own account for up to date information.
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
