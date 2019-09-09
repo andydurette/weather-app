@@ -29,6 +29,31 @@ class App extends React.Component {
     return date.toString().substring(0,3);
     }
 
+
+  datesetEnd = (n) =>{
+    var date = new Date();
+    date.setDate(date.getDate() + n);
+    switch (date.toString().substring(0,3)) {
+      case 'Sun':
+        return 'day'
+      case 'Mon':
+        return 'day'
+      case 'Tue':
+        return "sday";
+      case 'Wed':
+        return "nesday";
+      case 'Thu':
+        return "rsday";
+      case 'Fri':
+        return "day";
+      case 'Sat':
+        return "urday";
+      default:
+        break;
+    } 
+    return date.toString().substring(0,3);
+    }
+
   // Function that returns a formated date string with the key number represented by i for the day 
   datesetFull = (i) =>{
     var date = new Date();
@@ -36,30 +61,31 @@ class App extends React.Component {
     return date.toString().slice(0,15) + ' ' +  date.toString().substring(33);
     }
   
+
   // Compares the api text for weather to use an image, tried using a switch operator instead of if but had errors
   weatherIcon = (i) => {
     const icon = this.state.weather.daily.data[i].icon;
 
     if( icon === "clear-day" ) {
-      return <img src="/images/day-clear.svg" alt='Clear Day' />
+      return <img src="/images/day-clear.svg" alt='Weather Summary: Clear Day' />
     }else if (icon === "partly-cloudy-day"){
-      return <img src="/images/day-partly-cloudy.svg" alt='Partly Cloudy Day'/>
+      return <img src="/images/day-partly-cloudy.svg" alt='Weather Summary: Partly Cloudy Day'/>
     }else if( icon === "clear-night" ) {
       return <img src="/images/day-clear.svg" alt='Clear Night'/>
     }else if (icon === "partly-cloudy-night"){
-      return <img src="/images/day-partly-cloudy.svg" alt='Partly Cloudy Night'/>
+      return <img src="/images/day-partly-cloudy.svg" alt='Weather Summary: Partly Cloudy Night'/>
     }else if (icon === "cloudy"){
-      return <img src="/images/day-cloudy.svg" alt='Cloudy' />
+      return <img src="/images/day-cloudy.svg" alt='Weather Summary: Cloudy' />
     }else if (icon === "rain"){
-      return <img src="/images/day-rain.svg" alt='Rain' />
+      return <img src="/images/day-rain.svg" alt='Weather Summary: Rain' />
     }else if (icon === "sleet"){
-      return <img src="/images/day-sleet.svg" alt='Sleet' />
+      return <img src="/images/day-sleet.svg" alt='Weather Summary: Sleet' />
     }else if (icon === "snow"){
-      return <img src="/images/day-snow.svg" alt='Snow' />
+      return <img src="/images/day-snow.svg" alt='Weather Summary: Snow' />
     }else if (icon === "wind"){
-      return <img src="/images/day-wind.svg" alt='Wind' />
+      return <img src="/images/day-wind.svg" alt='Weather Summary: Wind' />
     }else if (icon === "fog"){ 
-      return <img src="/images/day-fog.svg" alt='Fog' />
+      return <img src="/images/day-fog.svg" alt='Weather Summary: Fog' />
     }
   }
 
@@ -107,13 +133,14 @@ class App extends React.Component {
             ></WeatherDisplay>
 
             {/* Controls for weather display */}
-            <section id='weatherContainer' className={(this.state.menuActive === false ) ? "close" : ""}>
+            <nav id='weatherContainer' className={(this.state.menuActive === false ) ? "close" : ""}>
               {
             [0,1,2,3,4,5,6].map ( (n) => {
                 return (
                   <WeatherTiles
                     key={n} 
-                    day={this.dateset(n)} 
+                    day={this.dateset(n)}
+                    datesetEnd={this.datesetEnd(n)}
                     weatherIcon={this.weatherIcon(n)} 
                     tempHigh={this.tempHigh(n)} 
                     tempLow={this.tempLow(n)} 
@@ -123,7 +150,7 @@ class App extends React.Component {
                 )
             })
         }         
-            </section>
+            </nav>
             {/* Api link included based off terms of aggrement */}
             <footer>
               <a href="https://darksky.net/poweredby/" target="_blank" rel="noopener noreferrer">Application data provided by Dark Sky</a>

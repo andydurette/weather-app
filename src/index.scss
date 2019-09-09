@@ -26,6 +26,25 @@ h1{
   text-align: center;
   }
 
+/* Accessibility focus setup */
+
+button:focus { /* removes focus outlines on mouse clicks */
+  outline: none;
+  background-color: rgba(95, 130, 141, 0.8);
+}
+
+.screen-reader-only{
+  position: absolute;
+ height: 1px;
+ width: 1px;
+ clip: rect(1px 1px 1px 1px); // IE 6 and 7
+ clip: rect(1px,1px,1px,1px);
+ clip-path: polygon(0px 0px, 0px 0px, 0px 0px);
+ -webkit-clip-path: polygon(0px 0px, 0px 0px, 0px 0px);
+ overflow: hidden !important;
+ }
+
+
 /* Loading screen style for while content is being loaded by the api*/
 #loadingScreen p{
   position: fixed;
@@ -62,6 +81,10 @@ h1{
     font-size:1.5em;
     text-align:center;
   }
+  button{
+    font-family: open sans;
+    font-size:1.5em;
+  }
 }
 
 #weatherContainer{
@@ -80,6 +103,7 @@ h1{
   padding-left:0;
   padding-right:0;
   background-color: rgba(95, 130, 141, 0.4);
+  border:none; 
   border-bottom:1px solid white;
   text-align: center;
   transition: background-color .25s;
@@ -152,6 +176,9 @@ h1{
     p img{
       max-width:45px;
     }
+    p:nth-of-type(1) { order: 2; }
+    p:nth-of-type(2) { order: 1; }
+    p:nth-of-type(3) { order: 3; }
   }
 
   .open{
@@ -189,9 +216,6 @@ h1{
     p{
       margin: 7px 0;
     }
-    p:nth-of-type(1) { order: 2; }
-    p:nth-of-type(2) { order: 1; }
-    p:nth-of-type(3) { order: 3; }
   }
 
 

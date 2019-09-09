@@ -4,11 +4,11 @@ export default class WeatherTiles extends React.Component {
 
 render() {
   return (
-      <div className={this.props.className} onClick={this.props.onClick}>
+      <button role="button" className={this.props.className} onClick={this.props.onClick}>
+        <p>{this.props.day}<span className="screen-reader-only">{this.props.datesetEnd}</span></p>
         <p>{this.props.weatherIcon}</p>
-        <p>{this.props.day}</p>
-        <p>{this.props.tempHigh}° | {this.props.tempLow}°</p>
-      </div>
+        <p><span className="screen-reader-only">High of </span>{this.props.tempHigh}° | <span className="screen-reader-only">Low of </span>{this.props.tempLow}°</p>
+      </button>
   )
 }
 }
