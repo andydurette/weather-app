@@ -17,10 +17,10 @@ class App extends React.Component {
     }
 
     fetch('https://cors-anywhere.herokuapp.com/http://andydurette.com/sitelog/test-data/weather.json')
-     .then((res) => res.json())
-     .then((data) => this.setState({weather: data}))
-     .then(() => this.setState({ isFetching: false}))
-  }
+    .then((res) => res.json())
+    .then((data) => {
+      this.setState({weather: data, isFetching: false})
+    })
 
   // Function that calls date information to display with weather Api Data
   dateset = (i) =>{
