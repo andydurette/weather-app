@@ -21,6 +21,7 @@ class App extends React.Component {
     .then((data) => {
       this.setState({weather: data, isFetching: false})
     })
+  }
 
   // Function that calls date information to display with weather Api Data
   dateset = (i) =>{
