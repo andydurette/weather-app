@@ -1,6 +1,7 @@
 # React Weather site
 
 This is a website that tells the weather for the Toronto area, it's data was provided by darksky's api.
+
 Live Link: https://darksky-weather-react.netlify.com/
 
 To get your own key or get more info you can visit: https://darksky.net/.
