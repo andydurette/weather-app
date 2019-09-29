@@ -16,7 +16,7 @@ class App extends React.Component {
       menuActive: false
     }
 
-  fetch('https://cors-anywhere.herokuapp.com/http://andydurette.com/sitelog/test-data/weather.json')
+  fetch('https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/7e2a14caaf233206e9baa745d4d549c1/43.6532,-79.3832')
     .then((res) => res.json())
     .then((data) => {
       this.setState({weather: data, isFetching: false})
