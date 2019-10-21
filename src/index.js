@@ -34,25 +34,33 @@ class App extends React.Component {
   datesetEnd = (n) =>{
     var date = new Date();
     date.setDate(date.getDate() + n);
+    let dayEnd; 
     switch (date.toString().substring(0,3)) {
       case 'Sun':
-        return 'day'
+        dayEnd = 'day'
+        break;
       case 'Mon':
-        return 'day'
+        dayEnd = 'day'
+        break;
       case 'Tue':
-        return "sday";
+        dayEnd = 'sday'
+        break;
       case 'Wed':
-        return "nesday";
+        dayEnd = 'nesday'
+        break;
       case 'Thu':
-        return "rsday";
+        dayEnd = 'rsday'
+        break;
       case 'Fri':
-        return "day";
+        dayEnd = 'day'
+        break;
       case 'Sat':
-        return "urday";
+        dayEnd = 'urday'
+        break;
       default:
         break;
     } 
-    return date.toString().substring(0,3);
+    return dayEnd
     }
 
   // Function that returns a formated date string with the key number represented by i for the day 
